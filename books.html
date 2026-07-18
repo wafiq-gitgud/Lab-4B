@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JSON and jQuery Lab</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>Open Console to See Output</h2>
+
+<script>
+$(document).ready(function(){
+
+    $.getJSON("books.json", function(data){
+
+        // Title of first book
+        console.log("First Book Title: " + data.books[0].title);
+
+        // Author of second book
+        console.log("Second Book Author: " + data.books[1].author);
+
+        // Genres of all books
+        console.log("Genres of all books:");
+        data.books.forEach(function(book){
+            console.log(book.genres.join(", "));
+        });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
